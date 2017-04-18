@@ -1,0 +1,31 @@
+{{plugin-outlet name="above-site-header"}}
+{{site-header canSignUp=canSignUp
+              showCreateAccount=(action "appRouteAction" "showCreateAccount")
+              showLogin=(action "appRouteAction" "showLogin")
+              showKeyboard=(action "appRouteAction" "showKeyboardShortcutsHelp")
+              toggleMobileView=(action "appRouteAction" "toggleMobileView")
+              toggleAnonymous=(action "appRouteAction" "toggleAnonymous")
+              logout=(action "appRouteAction" "logout")}}
+{{plugin-outlet name="below-site-header"}}
+
+<div id="main-outlet" class="wrap">
+  <div class="container">
+    {{#if showTop}}
+      {{custom-html name="top"}}
+    {{/if}}
+    {{global-notice}}
+    {{create-topics-notice}}
+  </div>
+  {{outlet}}
+  {{outlet "user-card"}}
+</div>
+
+{{plugin-outlet name="above-footer" args=(hash showFooter=showFooter)}}
+{{#if showFooter}}
+  {{custom-html name="footer"}}
+{{/if}}
+{{plugin-outlet name="below-footer" args=(hash showFooter=showFooter)}}
+
+{{outlet "modal"}}
+{{topic-entrance}}
+{{outlet "composer"}}

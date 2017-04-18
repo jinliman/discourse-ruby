@@ -1,0 +1,22 @@
+<td class="title">
+  {{#if report.icon}}
+    {{fa-icon report.icon}}
+  {{/if}}
+  <a href="{{report.reportUrl}}">{{report.title}}</a>
+</td>
+
+<td class="value">{{number report.todayCount}}</td>
+
+<td class="value {{report.yesterdayTrend}}" title={{report.yesterdayCountTitle}}>
+  {{number report.yesterdayCount}} {{fa-icon "caret-up" class="up"}} {{fa-icon "caret-down" class="down"}}
+</td>
+
+<td class="value {{report.sevenDayTrend}}" title={{report.sevenDayCountTitle}}>
+  {{number report.lastSevenDaysCount}} {{fa-icon "caret-up" class="up"}} {{fa-icon "caret-down" class="down"}}
+</td>
+
+<td class="value {{report.thirtyDayTrend}}" title={{report.thirtyDayCountTitle}}>
+  {{number report.lastThirtyDaysCount}} {{fa-icon "caret-up" class="up"}} {{fa-icon "caret-down" class="down"}}
+</td>
+
+<td class="value">{{number report.total}}</td>

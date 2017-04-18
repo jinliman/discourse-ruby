@@ -1,0 +1,5 @@
+#!/bin/bash
+
+PARAMS="$@"
+CMD="psql $PARAMS"
+docker exec -it -u postgres discourse_dev /bin/bash -c "$CMD"

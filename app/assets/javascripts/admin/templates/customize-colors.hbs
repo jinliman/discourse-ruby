@@ -1,0 +1,18 @@
+<div class='content-list span6'>
+  <h3>{{i18n 'admin.customize.colors.long_title'}}</h3>
+  <ul>
+    {{#each model as |scheme|}}
+      {{#unless scheme.is_base}}
+
+      <li>
+        {{#link-to 'adminCustomize.colors.show' scheme replace=true}}{{scheme.description}}{{/link-to}}
+      </li>
+      {{/unless}}
+    {{/each}}
+  </ul>
+  <button {{action "newColorScheme"}} class='btn'>{{fa-icon 'plus'}}{{i18n 'admin.customize.new'}}</button>
+</div>
+
+{{outlet}}
+
+<div class="clearfix"></div>
